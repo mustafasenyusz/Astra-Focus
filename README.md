@@ -1,24 +1,62 @@
-Astra Focus: Stratejik Hedef Yönetim Sistemi
-Bu projede, modern mobil uygulama geliştirme standartlarını baz alarak, kullanıcıların günlük hedeflerini yüksek odakla yönetebileceği bir disiplin mimarisi inşa ettim. Sadece bir liste uygulaması değil, önceliklendirme matrisi üzerine kurulu bir yönetim aracı hedefledim.
+# Astra Focus
 
-🛠 Teknik Uygulama ve Tercihler
-Projeyi geliştirirken performansı ve veri tutarlılığını ön planda tutarak şu teknolojileri kullandım:
+> A priority-driven goal manager built to make daily planning calmer, clearer, and easier to maintain.
 
-Expo Router (File-based Routing): Uygulama içi navigasyon yapısını, ölçeklenebilir ve dosya tabanlı bir sistem olan Expo Router ile kurguladım. Sayfalar arası geçişleri (Login, Welcome, Goals vb.) bu yapı üzerinden yöneterek dizin hiyerarşisini optimize ettim.
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Expo](https://img.shields.io/badge/Expo-000020?style=flat-square&logo=expo&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux_Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)
 
-Redux Toolkit (State Management): Uygulamanın merkezi veri yönetimini store üzerinden sağladım. goalSlice ve userSlice gibi modüller oluşturarak, veri akışını global seviyede kontrol edilebilir hale getirdim.
+## Overview
 
-Redux-Persist & AsyncStorage: Kullanıcı deneyimini kesintisiz kılmak adına, girilen hedeflerin cihaz hafızasında kalıcı olmasını sağladım. Uygulama kapansa dahi verilerin AsyncStorage üzerinde muhafaza edilmesini sağlayan bir persist mimarisi kurdum.
+Astra Focus is a frontend-focused mobile application for creating, prioritizing, and completing personal goals. I built it to practice scalable screen organization, typed state management, persistent client data, and intentional mobile UI hierarchy.
 
-TypeScript: Proje genelinde tip güvenliğini sağlayarak çalışma zamanı hatalarını minimize ettim. Görevler ve kullanıcı verileri için özel interface ve type tanımlamaları yaptım.
+## Highlights
 
- Mantıksal Mimari
-Uygulamanın işleyişinde şu mantıksal süreçleri uyguladım:
+- Create goals with critical, medium, or low priority
+- Separate active and completed goals
+- Persist user and goal data between sessions
+- Navigate through a file-based Expo Router structure
+- Keep application state predictable with focused Redux slices
+- Use TypeScript models for safer goal and user data
 
-Stratejik Sınıflandırma: Hedefleri eklerken Kritik, Orta ve Düşük olmak üzere üç farklı önem seviyesi belirledim. Bu seviyelere göre dinamik renk göstergeleri atayarak görsel hiyerarşi oluşturdum.
+## Tech stack
 
-Dinamik Statü Yönetimi: Hedefleri "Yapılacaklar" ve "Tamamlananlar" olarak iki ayrı klasmana ayırdım. Bir hedef işaretlendiği anda, filtreleme mantığıyla otomatik olarak ilgili listeye taşınmasını sağladım.
+| Area | Technology |
+| --- | --- |
+| Mobile UI | React Native, Expo |
+| Navigation | Expo Router |
+| Language | TypeScript |
+| State | Redux Toolkit, React Redux |
+| Persistence | Redux Persist, AsyncStorage |
 
-Bilişsel Yükü Azaltma: Arayüz tasarımında minimalist ve kurumsal bir dil kullanarak kullanıcının sadece hedeflerine odaklanmasını amaçladım.
+## Architecture
 
-Geliştirici: Mustafa Şenyüz
+```text
+app/       screens and file-based routes
+store/     goal and user slices, persisted store
+assets/    application icons and images
+constants/ shared theme values
+```
+
+The app keeps interface code and global data flow separate. Goal operations live in a dedicated slice, while persistence restores the user experience after the app restarts.
+
+## Run locally
+
+```bash
+git clone https://github.com/mustafasenyusz/Astra-Focus.git
+cd Astra-Focus
+npm install
+npx expo start
+```
+
+## Next steps
+
+- Add component and state tests
+- Improve form validation and empty states
+- Expand accessibility and keyboard support
+- Explore optional cloud synchronization
+
+## Developer
+
+Built by [Mustafa Şenyüz](https://github.com/mustafasenyusz), a frontend-focused developer expanding into backend and database architecture.
